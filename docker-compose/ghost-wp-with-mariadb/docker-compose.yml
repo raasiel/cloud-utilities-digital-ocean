@@ -13,7 +13,7 @@ services:
       - '/root/persist/ghost_data:/bitnami/ghost'
     depends_on:
       - mariadb
-wordpress:
+  wordpress:
     image: bitnami/wordpress:latest
     depends_on:
       - mariadb
