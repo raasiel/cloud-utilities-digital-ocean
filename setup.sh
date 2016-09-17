@@ -1,9 +1,6 @@
 # install some basic stuff
 
-apt-get install mc zip p7zip-full
-./scripts/docker-compose-install.sh
-./scripts/node-and-tools-install.sh
-./scripts/docker-images-pull.sh
+apt-get install mc zip p7zip-full htop
 sh ./scripts/docker-compose-install.sh
 sh ./scripts/node-and-tools-install.sh
 sh ./scripts/docker-images-pull.sh

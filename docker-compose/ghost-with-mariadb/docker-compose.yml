@@ -5,7 +5,7 @@ services:
     image: 'bitnami/mariadb:latest'
     volumes:
       - '/root/persist/mariadb_data:/bitnami/mariadb'
-  application:
+  ghost:
     image: bitnami/ghost:latest
     ports:
       - '80:2368'
