@@ -4,7 +4,7 @@ services:
   dotnet:
     image: 'microsoft/dotnet:latest'
     volumes:
-      - '/root/persist/stockbase_deploy:/root/stockbase'
+      - '/root/tfs/source:/root/stockbase'
     ports:
       - '5000:5000'
     entrypoint: /bin/sleep 500000
