@@ -12,26 +12,11 @@
 # Currently, the binary will look for config files at corresponding path.
 # based on yeasy/hyperledger
 
-FROM microsoft/dotnet
+FROM raasiel/dotnet
 MAINTAINER Shafqat Ahmed
 
 #ENV DEBIAN_FRONTEND noninteractive
 
-RUN     echo "deb http://ftp.de.debian.org/debian jessie-backports main" | tee /etc/apt/sources.list.d/jdk8.list
-RUN     apt-get update
-RUN     apt-get --assume-yes install openjdk-8-jdk    
-RUN     apt-get --assume-yes install unzip npm
-RUN     npm cache clean -f 
-RUN     npm install -g n
-RUN     n stable
-RUN     npm install -g gulp
-RUN     npm install -g bower        
-
-RUN     mkdir /root/downloads && \
-        cd /root/downloads && \      
-        wget http://download.microsoft.com/download/A/E/2/AE23B059-5727-445B-91CC-15B7A078A7F4/git-tf-2.0.3.20131219.zip && \
-        unzip git-tf-2.0.3.20131219.zip -d /root
-RUN     mv /root/git-tf-2.0.3.20131219 /root/gittf
 RUN     mkdir /root/tfs
 RUN     git config --global git-tf.server.username deploy \
         && git config --global git-tf.server.password orion123@
@@ -46,5 +31,7 @@ RUN cd /root/tfs/src/Stockbase.Web && \
         mkdir /app && \
         cp /root/tfs/src/Stockbase.Web/bin/Debug/netcoreapp1.0/publish/ /app
 
+RUN echo cd /app && dotnet Stockbase.Web.dll > /root/runapp.sh 
 WORKDIR /app
 ENTRYPOINT ["dotnet", "Stockbase.Web.dll"]
+EXPOSE 5000
