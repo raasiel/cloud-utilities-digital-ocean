@@ -24,12 +24,27 @@ RUN     cd /root/tfs && \
         /root/gittf/git-tf clone http://180.234.222.204:14038/tfs/Orion $/Stockbase/dev/src
 
 # Restore app
-RUN cd /root/tfs/src/Stockbase.Web && \
+RUN cd /root/tfs/src/Stockbase.Dependency && \
         dotnet restore && \
         dotnet build && \
+        cd /root/tfs/src/Stockbase.Core && \
+        dotnet restore && \
+        dotnet build && \
+        cd /root/tfs/src/Stockbase.Data && \
+        dotnet restore && \
+        dotnet build && \
+        cd /root/tfs/src/Stockbase.Data.SqlServer && \
+        dotnet restore && \
+        dotnet build && \
+        cd /root/tfs/src/Stockbase.Business && \
+        dotnet restore && \
+        dotnet build && \
+        cd /root/tfs/src/Stockbase.Web && \
+        dotnet restore && \
+        dotnet build && \               
         dotnet publish && \
         mkdir /app && \
-        cp /root/tfs/src/Stockbase.Web/bin/Debug/netcoreapp1.0/publish/ /app
+        cp -r /root/tfs/src/Stockbase.Web/bin/Debug/netcoreapp1.0/publish /app
 
 RUN echo cd /app && dotnet Stockbase.Web.dll > /root/runapp.sh 
 WORKDIR /app
