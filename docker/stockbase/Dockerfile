@@ -48,5 +48,4 @@ RUN cd /root/tfs/src/Stockbase.Dependency && \
 
 RUN echo cd /app && dotnet Stockbase.Web.dll > /root/runapp.sh 
 WORKDIR /app
-ENTRYPOINT ["dotnet", "Stockbase.Web.dll"]
 EXPOSE 5000
