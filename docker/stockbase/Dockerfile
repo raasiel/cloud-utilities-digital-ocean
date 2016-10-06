@@ -17,10 +17,10 @@ MAINTAINER Shafqat Ahmed
 
 #ENV DEBIAN_FRONTEND noninteractive
 
-RUN     mkdir /root/tfs
-RUN     git config --global git-tf.server.username deploy \
-        && git config --global git-tf.server.password orion123@
-RUN     cd /root/tfs && \
+RUN     mkdir /root/tfs  && \
+        git config --global git-tf.server.username deploy && \
+        git config --global git-tf.server.password orion123@ && \
+        cd /root/tfs && \
         /root/gittf/git-tf clone http://180.234.222.204:14038/tfs/Orion $/Stockbase/dev/src
 
 # Restore app
