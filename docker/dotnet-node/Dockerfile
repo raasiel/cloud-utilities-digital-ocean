@@ -1,16 +1,3 @@
-#ENTRYPOINT ["dotnet", "Stockbase.Web.dll"]
-#ARG source=.
-#WORKDIR /app
-#EXPOSE 80
-#COPY $source .
-
-# Dockerfile for Hyperledger fabric base image, with everything (peer, membersrvc) to go!
-# If you need a peer node to run, please see the yeasy/hyperledger-peer image.
-# Workdir is set to $GOPATH/src/github.com/hyperledger/fabric
-# Data is stored under /var/hyperledger/db and /var/hyperledger/production
-
-# Currently, the binary will look for config files at corresponding path.
-# based on yeasy/hyperledger
 
 FROM microsoft/dotnet
 MAINTAINER Shafqat Ahmed
@@ -26,4 +13,3 @@ RUN     echo "deb http://ftp.de.debian.org/debian jessie-backports main" | tee /
         n stable  && \
         npm install -g gulp  && \
         npm install -g bower 
-
