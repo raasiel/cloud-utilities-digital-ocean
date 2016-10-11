@@ -46,5 +46,5 @@ RUN cd /root/tfs/src/Stockbase.Dependency && \
 
 RUN printf "cd /app \ndotnet Stockbase.Web.dll" > /app/runapp.sh 
 WORKDIR /app
-CMD /app/runapp.sh
+CMD /bin/sh -c /app/runapp.sh
 EXPOSE 5000
