@@ -44,7 +44,7 @@ RUN cd /root/tfs/src/Stockbase.Dependency && \
         cp -r /root/tfs/src/Stockbase.Web/bin/Debug/netcoreapp1.0/publish / && \
         mv /publish /app
 
-RUN printf "cd /app \ndotnet Stockbase.Web.dll" > /root/runapp.sh 
+RUN printf "cd /app \ndotnet Stockbase.Web.dll" > /app/runapp.sh 
 WORKDIR /app
-CMD /root/runapp.sh
+CMD runapp.sh
 EXPOSE 5000
