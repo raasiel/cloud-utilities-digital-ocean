@@ -13,5 +13,4 @@ RUN     echo "deb http://ftp.de.debian.org/debian jessie-backports main" | tee /
         n stable  && \
         npm install -g gulp  && \
         npm install -g bower  && \ 
-        npm install -g grunt && \
-        npm install -g grunt-cli
+        npm install -g grunt
