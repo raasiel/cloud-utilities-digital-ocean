@@ -27,4 +27,3 @@ RUN     echo "deb http://ftp.de.debian.org/debian jessie-backports main" | tee /
         npm install -g gulp  && \
         npm install -g bower 
 
-TAG raasiel/dotnet-node
