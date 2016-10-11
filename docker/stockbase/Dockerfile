@@ -41,9 +41,10 @@ RUN cd /root/tfs/src/Stockbase.Dependency && \
         dotnet restore && \
         dotnet build && \               
         dotnet publish && \
-        mkdir /app && \
-        cp -r /root/tfs/src/Stockbase.Web/bin/Debug/netcoreapp1.0/publish /app
+        cp -r /root/tfs/src/Stockbase.Web/bin/Debug/netcoreapp1.0/publish / && \
+        mv /publish /app
 
-RUN echo cd /app && dotnet Stockbase.Web.dll > /root/runapp.sh 
+RUN printf "cd /app \ndotnet Stockbase.Web.dll" > /root/runapp.sh 
 WORKDIR /app
+CMD /root/runapp.sh
 EXPOSE 5000
