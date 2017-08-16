@@ -1,0 +1,65 @@
+version: '2.0'
+services:
+  p1:
+    image: 'raasiel/ubuntu-mesos'
+    volumes:
+      - '/home/shafqat/docker-compose-mesos/common:/root/common'
+    environment:
+      - MONGODB_USERNAME=orion
+    ports:
+      - '2001:22'
+    command: sh /root/common/start.sh
+    
+  p2:
+    image: 'raasiel/ubuntu-mesos'
+    volumes:
+      - '/home/shafqat/docker-compose-mesos/common:/root/common'
+    environment:
+      - MONGODB_USERNAME=orion
+    ports:
+      - '2002:22'
+    command: sh /root/common/start.sh
+
+  p3:
+    image: 'raasiel/ubuntu-mesos'
+    volumes:
+      - '/home/shafqat/docker-compose-mesos/common:/root/common'
+    environment:
+      - MONGODB_USERNAME=orion
+    ports:
+      - '2003:22'      
+    command: sh /root/common/start.sh
+
+  p4:
+    image: 'raasiel/ubuntu-mesos'
+    volumes:
+      - '/home/shafqat/docker-compose-mesos/common:/root/common'
+    environment:
+      - MONGODB_USERNAME=orion
+    ports:
+      - '2004:22'      
+    command: sh /root/common/start.sh
+
+  p5:
+    image: 'raasiel/ubuntu-mesos'
+    volumes:
+      - '/home/shafqat/docker-compose-mesos/common:/root/common'
+    environment:
+      - MONGODB_USERNAME=orion
+    ports:
+      - '2005:22'      
+    command: sh /root/common/start.sh
+  
+  p6:
+    image: 'raasiel/ubuntu-mesos'
+    volumes:
+      - '/home/shafqat/docker-compose-mesos/common:/root/common'
+    environment:
+      - MONGODB_USERNAME=orion
+    ports:
+      - '2006:22'
+    command: sh /root/common/start.sh
+
+
+    
+    
